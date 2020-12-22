@@ -1,0 +1,29 @@
+info:
+  description: Documentation API of MyDigibiz
+  version: "1.0.0"
+  title: MyDigibiz
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    
+paths:
+  /telkomgroup/dashboard/digital_revenue_per_domain:
+    post:
+      tags:
+        - Telgrup Dashboard
+      summary: Telkom Group Digital Revenue
+      description: Digital REvenue per Domain
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/formBody'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tddigrevperdomain'

@@ -1,0 +1,19 @@
+paths:
+  /telkomgroup/dashboard/digital_revenue_per_domain:
+    post:
+      tags:
+        - Telgrup Dashboard
+      summary: Telkom Group Digital Revenue
+      description: Digital REvenue per Domain
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/formBody'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tddigrevperdomain'
