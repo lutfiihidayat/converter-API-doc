@@ -1,0 +1,4381 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "MySooltan CMS",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://example.com",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/v1/anonymous-token": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get Anonymous Token",
+        "operationId": "GetAnonymousToken",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetAnonymousTokenRequest"
+              },
+              "example": {
+                "expiredTime": 60
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 15:38:20 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 15:38:20 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "288"
+                    },
+                    "example": "288"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "Www-Authenticate": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Basic realm=\"\""
+                    },
+                    "example": "Basic realm=\"\""
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAnonymousToken"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "Success",
+                  "data": {
+                    "expiredTokenTimeInMinutes": 60,
+                    "token": "Token123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/customer/v1/cms/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Login",
+        "operationId": "Login",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              },
+              "example": {
+                "username": "{{email}}",
+                "password": "{{password}}"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 15:38:37 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 15:38:37 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "108"
+                    },
+                    "example": "108"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Login4001"
+                },
+                "example": {
+                  "success": false,
+                  "code": 400,
+                  "message": "Nik, email, atau password yang Anda masukkan salah"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 15:39:14 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 15:39:14 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1056"
+                    },
+                    "example": "1056"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Login200"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "Success",
+                  "data": {
+                    "token": "token123",
+                    "refreshToken": "refreshToken123",
+                    "profile": {
+                      "id": "idUser",
+                      "nik": {
+                        "String": "",
+                        "Valid": false
+                      },
+                      "fullname": "wan",
+                      "mobileNumber": "",
+                      "email": "email",
+                      "createdAt": "2022-02-16T15:48:09.921869+07:00",
+                      "modifiedAt": "2022-05-05T22:39:14.126611655+07:00",
+                      "lastLogin": "2022-05-05T22:39:14.103025516+07:00",
+                      "profilePicture": "",
+                      "role": "superadmin",
+                      "isActive": true,
+                      "createdBy": "cef744d5-f906-48f4-80b7-03bb422014a1",
+                      "updatedBy": "cef744d5-f906-48f4-80b7-03bb422014a1",
+                      "userCreatedBy": null,
+                      "userUpdatedBy": null,
+                      "position": "dev",
+                      "unit": "dev",
+                      "deletedAt": null,
+                      "deletedBy": ""
+                    },
+                    "expiredTokenTimeInMinutes": 6000,
+                    "expiredRefreshTokenTimeInMinutes": 12000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/v1/cms/logout": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Logout",
+        "operationId": "Logout",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 15:39:29 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 15:39:29 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "75"
+                    },
+                    "example": "75"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Logout200"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "Success logout"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 15:39:36 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 15:39:36 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "81"
+                    },
+                    "example": "81"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Logout200"
+                },
+                "example": {
+                  "success": false,
+                  "code": 401,
+                  "message": "Session expired"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/v1/cms/save-password": {
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Saving Password",
+        "operationId": "SavingPassword",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SavingPasswordRequest"
+              },
+              "example": {
+                "idMicrosite": "{{idMicrosite}}",
+                "newPassword": "{{password}}",
+                "retypePassword": "{{retypePassword}}"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 15:41:33 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 15:41:33 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "111"
+                    },
+                    "example": "111"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavingPassword4001"
+                },
+                "example": {
+                  "success": false,
+                  "code": 400,
+                  "message": "maaf token telah expire!, silahkan hubungi admin kembali"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 15:45:22 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 15:45:22 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "93"
+                    },
+                    "example": "93"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavingPassword4001"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "Password anda berhasil dibuat"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/cms/refresh-token": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Refresh Token",
+        "operationId": "RefreshToken",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequest"
+              },
+              "example": {
+                "token": "{{token}}",
+                "refreshToken": "{{refresh_token}}"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/v1/cms/user-nik/{nik}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get User By NIK",
+        "operationId": "GetUserByNIK",
+        "parameters": [
+          {
+            "name": "nik",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{nik}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 15:45:42 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 15:45:42 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "201"
+                    },
+                    "example": "201"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserByNIK200"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "Success",
+                  "data": {
+                    "id": "",
+                    "nik": "nik",
+                    "name": "RIA LYZARA",
+                    "email": "email",
+                    "role": "",
+                    "position": "JUNIOR PRODUCT MANAGER",
+                    "unit": "PRODUCT MANAGER",
+                    "status": {
+                      "isActive": false,
+                      "status": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 15:47:26 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 15:47:26 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "86"
+                    },
+                    "example": "86"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserByNIK4001"
+                },
+                "example": {
+                  "success": false,
+                  "code": 400,
+                  "message": "NIK tidak ditemukan!"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/v1/cms/user-email/{email}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get User By Email",
+        "operationId": "GetUserByEmail",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{email}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 15:47:55 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 15:47:55 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "111"
+                    },
+                    "example": "111"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetUserByEmail200"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "success",
+                  "data": {
+                    "message": "Email telah terdaftar sebagai superadmin"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/v1/cms/users": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get All Users",
+        "operationId": "GetAllUsers",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 10
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAllUsers"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "Success",
+                  "meta": {
+                    "page": 1,
+                    "limit": 10,
+                    "totalRecords": 1,
+                    "totalPages": 1
+                  },
+                  "data": [
+                    {
+                      "id": "id",
+                      "nik": "nik",
+                      "name": "Wan Faldi",
+                      "email": "email",
+                      "role": "superadmin",
+                      "status": {
+                        "isActive": true,
+                        "status": "Aktif"
+                      }
+                    },
+                    {
+                      "id": "id",
+                      "nik": "",
+                      "name": "Dayat",
+                      "email": "email",
+                      "role": "admin",
+                      "status": {
+                        "isActive": true,
+                        "status": "Aktif"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/v1/cms/user/{id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get Detail User",
+        "operationId": "GetDetailUser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{idUser}}"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:09:05 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:09:05 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "82"
+                    },
+                    "example": "82"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDetailUser4001"
+                },
+                "example": {
+                  "success": false,
+                  "code": 400,
+                  "message": "record not found"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:09:46 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:09:46 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "271"
+                    },
+                    "example": "271"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDetailUser200"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "Success",
+                  "data": {
+                    "id": "id",
+                    "nik": "",
+                    "name": "wan",
+                    "email": "email",
+                    "role": "superadmin",
+                    "position": "dev",
+                    "unit": "dev",
+                    "status": {
+                      "isActive": true,
+                      "status": "Aktif"
+                    },
+                    "createdAt": "2022-02-16T15:48:09+07:00",
+                    "createdBy": "ezra ghalibin",
+                    "updatedAt": "2022-05-05T22:44:17+07:00",
+                    "updatedBy": "ezra ghalibin"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Update User",
+        "operationId": "UpdateUser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{idUser}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              },
+              "example": {
+                "nik": "",
+                "fullname": "wan",
+                "email": "wanfaldi.telkomdev@gmail.com",
+                "role": "superadmin",
+                "isActive": true,
+                "position": "dev",
+                "unit": "dev"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:11:51 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:11:51 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "82"
+                    },
+                    "example": "82"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUser4001"
+                },
+                "example": {
+                  "success": false,
+                  "code": 400,
+                  "message": "record not found"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:14:02 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:14:02 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "65"
+                    },
+                    "example": "65"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUser4001"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "success"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Delete User",
+        "operationId": "DeleteUser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{idUser}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:18:48 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:18:48 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "65"
+                    },
+                    "example": "65"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUser200"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "success"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:19:07 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:19:07 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "82"
+                    },
+                    "example": "82"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUser200"
+                },
+                "example": {
+                  "success": false,
+                  "code": 400,
+                  "message": "record not found"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/v1/cms/user": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Create User",
+        "operationId": "CreateUser",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserRequest"
+              },
+              "example": {
+                "nik": "",
+                "fullname": "Agus",
+                "email": "{{email}}",
+                "role": "admin",
+                "isActive": true,
+                "position": "Manager",
+                "unit": "ewd"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:10:45 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:10:45 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "111"
+                    },
+                    "example": "111"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUser4001"
+                },
+                "example": {
+                  "success": false,
+                  "code": 400,
+                  "message": "User email.com sudah terdaftar! "
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:11:09 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:11:09 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "65"
+                    },
+                    "example": "65"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUser4001"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "success"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/v1/cms/user/activation/{id}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Set User Activation",
+        "operationId": "SetUserActivation",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{idUser}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetUserActivationRequest"
+              },
+              "example": {
+                "isActive": true
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:15:37 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:15:37 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "112"
+                    },
+                    "example": "112"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetUserActivation4001"
+                },
+                "example": {
+                  "success": false,
+                  "code": 400,
+                  "message": "Status aktivasi tidak boleh sama dengan status user saat ini"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:15:53 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:15:53 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "65"
+                    },
+                    "example": "65"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetUserActivation4001"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "success"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/v1/cms/microsite/{id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get Id Microsite",
+        "operationId": "GetIdMicrosite",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{idMicrosite}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:17:57 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:17:57 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "148"
+                    },
+                    "example": "148"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetIdMicrosite200"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "Success",
+                  "data": {
+                    "id": "id",
+                    "name": "Agus",
+                    "email": "email"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:18:20 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:18:20 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "105"
+                    },
+                    "example": "105"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetIdMicrosite4001"
+                },
+                "example": {
+                  "success": false,
+                  "code": 400,
+                  "message": "Batas waktu sudah habis, silahkan hubungi admin"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/v1/cms/roles": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get Master Role",
+        "operationId": "GetMasterRole",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:16:40 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:16:40 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "112"
+                    },
+                    "example": "112"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMasterRole"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "success",
+                  "data": [
+                    {
+                      "code": "superadmin",
+                      "name": "Super Admin"
+                    },
+                    {
+                      "code": "admin",
+                      "name": "Admin"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/v1/cms/status": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get Master Status",
+        "operationId": "GetMasterStatus",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Server": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "nginx"
+                    },
+                    "example": "nginx"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 05 May 2022 16:16:47 GMT"
+                    },
+                    "example": "Thu, 05 May 2022 16:16:47 GMT"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "107"
+                    },
+                    "example": "107"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "gzip"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Origin"
+                    },
+                    "example": "Origin"
+                  }
+                }
+              },
+              "X-XSS-Protection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "1; mode=block"
+                    },
+                    "example": "1; mode=block"
+                  }
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "off"
+                    },
+                    "example": "off"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMasterStatus"
+                },
+                "example": {
+                  "success": true,
+                  "code": 200,
+                  "message": "success",
+                  "data": [
+                    {
+                      "code": true,
+                      "name": "Aktif"
+                    },
+                    {
+                      "code": false,
+                      "name": "Non Aktif"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetAnonymousTokenRequest": {
+        "title": "GetAnonymousTokenRequest",
+        "required": [
+          "expiredTime"
+        ],
+        "type": "object",
+        "properties": {
+          "expiredTime": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "expiredTime": 60
+        }
+      },
+      "GetAnonymousToken": {
+        "title": "GetAnonymousToken",
+        "required": [
+          "success",
+          "code",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": true,
+          "code": 200,
+          "message": "Success",
+          "data": {
+            "expiredTokenTimeInMinutes": 60,
+            "token": "Token123"
+          }
+        }
+      },
+      "Data": {
+        "title": "Data",
+        "required": [
+          "expiredTokenTimeInMinutes",
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "expiredTokenTimeInMinutes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "expiredTokenTimeInMinutes": 60,
+          "token": "Token123"
+        }
+      },
+      "LoginRequest": {
+        "title": "LoginRequest",
+        "required": [
+          "username",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "username": "{{email}}",
+          "password": "{{password}}"
+        }
+      },
+      "Login4001": {
+        "title": "Login4001",
+        "required": [
+          "success",
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "code": 400,
+          "message": "Nik, email, atau password yang Anda masukkan salah"
+        }
+      },
+      "Login200": {
+        "title": "Login200",
+        "required": [
+          "success",
+          "code",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data1"
+          }
+        },
+        "example": {
+          "success": true,
+          "code": 200,
+          "message": "Success",
+          "data": {
+            "token": "token123",
+            "refreshToken": "refreshToken123",
+            "profile": {
+              "id": "idUser",
+              "nik": {
+                "String": "",
+                "Valid": false
+              },
+              "fullname": "wan",
+              "mobileNumber": "",
+              "email": "email",
+              "createdAt": "2022-02-16T15:48:09.921869+07:00",
+              "modifiedAt": "2022-05-05T22:39:14.126611655+07:00",
+              "lastLogin": "2022-05-05T22:39:14.103025516+07:00",
+              "profilePicture": "",
+              "role": "superadmin",
+              "isActive": true,
+              "createdBy": "cef744d5-f906-48f4-80b7-03bb422014a1",
+              "updatedBy": "cef744d5-f906-48f4-80b7-03bb422014a1",
+              "userCreatedBy": null,
+              "userUpdatedBy": null,
+              "position": "dev",
+              "unit": "dev",
+              "deletedAt": null,
+              "deletedBy": ""
+            },
+            "expiredTokenTimeInMinutes": 6000,
+            "expiredRefreshTokenTimeInMinutes": 12000
+          }
+        }
+      },
+      "Data1": {
+        "title": "Data1",
+        "required": [
+          "token",
+          "refreshToken",
+          "profile",
+          "expiredTokenTimeInMinutes",
+          "expiredRefreshTokenTimeInMinutes"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/Profile"
+          },
+          "expiredTokenTimeInMinutes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "expiredRefreshTokenTimeInMinutes": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "token": "token123",
+          "refreshToken": "refreshToken123",
+          "profile": {
+            "id": "idUser",
+            "nik": {
+              "String": "",
+              "Valid": false
+            },
+            "fullname": "wan",
+            "mobileNumber": "",
+            "email": "email",
+            "createdAt": "2022-02-16T15:48:09.921869+07:00",
+            "modifiedAt": "2022-05-05T22:39:14.126611655+07:00",
+            "lastLogin": "2022-05-05T22:39:14.103025516+07:00",
+            "profilePicture": "",
+            "role": "superadmin",
+            "isActive": true,
+            "createdBy": "cef744d5-f906-48f4-80b7-03bb422014a1",
+            "updatedBy": "cef744d5-f906-48f4-80b7-03bb422014a1",
+            "userCreatedBy": null,
+            "userUpdatedBy": null,
+            "position": "dev",
+            "unit": "dev",
+            "deletedAt": null,
+            "deletedBy": ""
+          },
+          "expiredTokenTimeInMinutes": 6000,
+          "expiredRefreshTokenTimeInMinutes": 12000
+        }
+      },
+      "Profile": {
+        "title": "Profile",
+        "required": [
+          "id",
+          "nik",
+          "fullname",
+          "mobileNumber",
+          "email",
+          "createdAt",
+          "modifiedAt",
+          "lastLogin",
+          "profilePicture",
+          "role",
+          "isActive",
+          "createdBy",
+          "updatedBy",
+          "userCreatedBy",
+          "userUpdatedBy",
+          "position",
+          "unit",
+          "deletedAt",
+          "deletedBy"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nik": {
+            "$ref": "#/components/schemas/Nik"
+          },
+          "fullname": {
+            "type": "string"
+          },
+          "mobileNumber": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "modifiedAt": {
+            "type": "string"
+          },
+          "lastLogin": {
+            "type": "string"
+          },
+          "profilePicture": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "updatedBy": {
+            "type": "string"
+          },
+          "userCreatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "userUpdatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "position": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "deletedAt": {
+            "type": "string",
+            "nullable": true
+          },
+          "deletedBy": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": "idUser",
+          "nik": {
+            "String": "",
+            "Valid": false
+          },
+          "fullname": "wan",
+          "mobileNumber": "",
+          "email": "email",
+          "createdAt": "2022-02-16T15:48:09.921869+07:00",
+          "modifiedAt": "2022-05-05T22:39:14.126611655+07:00",
+          "lastLogin": "2022-05-05T22:39:14.103025516+07:00",
+          "profilePicture": "",
+          "role": "superadmin",
+          "isActive": true,
+          "createdBy": "cef744d5-f906-48f4-80b7-03bb422014a1",
+          "updatedBy": "cef744d5-f906-48f4-80b7-03bb422014a1",
+          "userCreatedBy": null,
+          "userUpdatedBy": null,
+          "position": "dev",
+          "unit": "dev",
+          "deletedAt": null,
+          "deletedBy": ""
+        }
+      },
+      "Nik": {
+        "title": "Nik",
+        "required": [
+          "String",
+          "Valid"
+        ],
+        "type": "object",
+        "properties": {
+          "String": {
+            "type": "string"
+          },
+          "Valid": {
+            "type": "boolean"
+          }
+        },
+        "example": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      "Logout200": {
+        "title": "Logout200",
+        "required": [
+          "success",
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": true,
+          "code": 200,
+          "message": "Success logout"
+        }
+      },
+      "SavingPasswordRequest": {
+        "title": "SavingPasswordRequest",
+        "required": [
+          "idMicrosite",
+          "newPassword",
+          "retypePassword"
+        ],
+        "type": "object",
+        "properties": {
+          "idMicrosite": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          },
+          "retypePassword": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "idMicrosite": "{{idMicrosite}}",
+          "newPassword": "{{password}}",
+          "retypePassword": "{{retypePassword}}"
+        }
+      },
+      "SavingPassword4001": {
+        "title": "SavingPassword4001",
+        "required": [
+          "success",
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "code": 400,
+          "message": "maaf token telah expire!, silahkan hubungi admin kembali"
+        }
+      },
+      "RefreshTokenRequest": {
+        "title": "RefreshTokenRequest",
+        "required": [
+          "token",
+          "refreshToken"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "token": "{{token}}",
+          "refreshToken": "{{refresh_token}}"
+        }
+      },
+      "GetUserByNIK200": {
+        "title": "GetUserByNIK200",
+        "required": [
+          "success",
+          "code",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data2"
+          }
+        },
+        "example": {
+          "success": true,
+          "code": 200,
+          "message": "Success",
+          "data": {
+            "id": "",
+            "nik": "nik",
+            "name": "RIA LYZARA",
+            "email": "email",
+            "role": "",
+            "position": "JUNIOR PRODUCT MANAGER",
+            "unit": "PRODUCT MANAGER",
+            "status": {
+              "isActive": false,
+              "status": ""
+            }
+          }
+        }
+      },
+      "Data2": {
+        "title": "Data2",
+        "required": [
+          "id",
+          "nik",
+          "name",
+          "email",
+          "role",
+          "position",
+          "unit",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nik": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "position": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          }
+        },
+        "example": {
+          "id": "",
+          "nik": "nik",
+          "name": "RIA LYZARA",
+          "email": "email",
+          "role": "",
+          "position": "JUNIOR PRODUCT MANAGER",
+          "unit": "PRODUCT MANAGER",
+          "status": {
+            "isActive": false,
+            "status": ""
+          }
+        }
+      },
+      "Status": {
+        "title": "Status",
+        "required": [
+          "isActive",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "isActive": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "isActive": false,
+          "status": ""
+        }
+      },
+      "GetUserByNIK4001": {
+        "title": "GetUserByNIK4001",
+        "required": [
+          "success",
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "code": 400,
+          "message": "NIK tidak ditemukan!"
+        }
+      },
+      "GetUserByEmail200": {
+        "title": "GetUserByEmail200",
+        "required": [
+          "success",
+          "code",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data3"
+          }
+        },
+        "example": {
+          "success": true,
+          "code": 200,
+          "message": "success",
+          "data": {
+            "message": "Email telah terdaftar sebagai superadmin"
+          }
+        }
+      },
+      "Data3": {
+        "title": "Data3",
+        "required": [
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "message": "Email telah terdaftar sebagai superadmin"
+        }
+      },
+      "GetAllUsers": {
+        "title": "GetAllUsers",
+        "required": [
+          "success",
+          "code",
+          "message",
+          "meta",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Data4"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "success": true,
+          "code": 200,
+          "message": "Success",
+          "meta": {
+            "page": 1,
+            "limit": 10,
+            "totalRecords": 1,
+            "totalPages": 1
+          },
+          "data": [
+            {
+              "id": "id",
+              "nik": "nik",
+              "name": "Wan Faldi",
+              "email": "email",
+              "role": "superadmin",
+              "status": {
+                "isActive": true,
+                "status": "Aktif"
+              }
+            },
+            {
+              "id": "id",
+              "nik": "",
+              "name": "Dayat",
+              "email": "email",
+              "role": "admin",
+              "status": {
+                "isActive": true,
+                "status": "Aktif"
+              }
+            }
+          ]
+        }
+      },
+      "Meta": {
+        "title": "Meta",
+        "required": [
+          "page",
+          "limit",
+          "totalRecords",
+          "totalPages"
+        ],
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "page": 1,
+          "limit": 10,
+          "totalRecords": 1,
+          "totalPages": 1
+        }
+      },
+      "Data4": {
+        "title": "Data4",
+        "required": [
+          "id",
+          "nik",
+          "name",
+          "email",
+          "role",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nik": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          }
+        },
+        "example": {
+          "id": "id",
+          "nik": "nik",
+          "name": "Wan Faldi",
+          "email": "email",
+          "role": "superadmin",
+          "status": {
+            "isActive": true,
+            "status": "Aktif"
+          }
+        }
+      },
+      "GetDetailUser4001": {
+        "title": "GetDetailUser4001",
+        "required": [
+          "success",
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "code": 400,
+          "message": "record not found"
+        }
+      },
+      "GetDetailUser200": {
+        "title": "GetDetailUser200",
+        "required": [
+          "success",
+          "code",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data5"
+          }
+        },
+        "example": {
+          "success": true,
+          "code": 200,
+          "message": "Success",
+          "data": {
+            "id": "id",
+            "nik": "",
+            "name": "wan",
+            "email": "email",
+            "role": "superadmin",
+            "position": "dev",
+            "unit": "dev",
+            "status": {
+              "isActive": true,
+              "status": "Aktif"
+            },
+            "createdAt": "2022-02-16T15:48:09+07:00",
+            "createdBy": "ezra ghalibin",
+            "updatedAt": "2022-05-05T22:44:17+07:00",
+            "updatedBy": "ezra ghalibin"
+          }
+        }
+      },
+      "Data5": {
+        "title": "Data5",
+        "required": [
+          "id",
+          "nik",
+          "name",
+          "email",
+          "role",
+          "position",
+          "unit",
+          "status",
+          "createdAt",
+          "createdBy",
+          "updatedAt",
+          "updatedBy"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nik": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "position": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "updatedBy": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": "id",
+          "nik": "",
+          "name": "wan",
+          "email": "email",
+          "role": "superadmin",
+          "position": "dev",
+          "unit": "dev",
+          "status": {
+            "isActive": true,
+            "status": "Aktif"
+          },
+          "createdAt": "2022-02-16T15:48:09+07:00",
+          "createdBy": "ezra ghalibin",
+          "updatedAt": "2022-05-05T22:44:17+07:00",
+          "updatedBy": "ezra ghalibin"
+        }
+      },
+      "CreateUserRequest": {
+        "title": "CreateUserRequest",
+        "required": [
+          "nik",
+          "fullname",
+          "email",
+          "role",
+          "isActive",
+          "position",
+          "unit"
+        ],
+        "type": "object",
+        "properties": {
+          "nik": {
+            "type": "string"
+          },
+          "fullname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "position": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "nik": "",
+          "fullname": "Agus",
+          "email": "{{email}}",
+          "role": "admin",
+          "isActive": true,
+          "position": "Manager",
+          "unit": "ewd"
+        }
+      },
+      "CreateUser4001": {
+        "title": "CreateUser4001",
+        "required": [
+          "success",
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "code": 400,
+          "message": "User email.com sudah terdaftar! "
+        }
+      },
+      "UpdateUserRequest": {
+        "title": "UpdateUserRequest",
+        "required": [
+          "nik",
+          "fullname",
+          "email",
+          "role",
+          "isActive",
+          "position",
+          "unit"
+        ],
+        "type": "object",
+        "properties": {
+          "nik": {
+            "type": "string"
+          },
+          "fullname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "position": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "nik": "",
+          "fullname": "wan",
+          "email": "wanfaldi.telkomdev@gmail.com",
+          "role": "superadmin",
+          "isActive": true,
+          "position": "dev",
+          "unit": "dev"
+        }
+      },
+      "UpdateUser4001": {
+        "title": "UpdateUser4001",
+        "required": [
+          "success",
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "code": 400,
+          "message": "record not found"
+        }
+      },
+      "SetUserActivationRequest": {
+        "title": "SetUserActivationRequest",
+        "required": [
+          "isActive"
+        ],
+        "type": "object",
+        "properties": {
+          "isActive": {
+            "type": "boolean"
+          }
+        },
+        "example": {
+          "isActive": true
+        }
+      },
+      "SetUserActivation4001": {
+        "title": "SetUserActivation4001",
+        "required": [
+          "success",
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "code": 400,
+          "message": "Status aktivasi tidak boleh sama dengan status user saat ini"
+        }
+      },
+      "DeleteUser200": {
+        "title": "DeleteUser200",
+        "required": [
+          "success",
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": true,
+          "code": 200,
+          "message": "success"
+        }
+      },
+      "GetIdMicrosite200": {
+        "title": "GetIdMicrosite200",
+        "required": [
+          "success",
+          "code",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data6"
+          }
+        },
+        "example": {
+          "success": true,
+          "code": 200,
+          "message": "Success",
+          "data": {
+            "id": "id",
+            "name": "Agus",
+            "email": "email"
+          }
+        }
+      },
+      "Data6": {
+        "title": "Data6",
+        "required": [
+          "id",
+          "name",
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": "id",
+          "name": "Agus",
+          "email": "email"
+        }
+      },
+      "GetIdMicrosite4001": {
+        "title": "GetIdMicrosite4001",
+        "required": [
+          "success",
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "code": 400,
+          "message": "Batas waktu sudah habis, silahkan hubungi admin"
+        }
+      },
+      "GetMasterRole": {
+        "title": "GetMasterRole",
+        "required": [
+          "success",
+          "code",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Data7"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "success": true,
+          "code": 200,
+          "message": "success",
+          "data": [
+            {
+              "code": "superadmin",
+              "name": "Super Admin"
+            },
+            {
+              "code": "admin",
+              "name": "Admin"
+            }
+          ]
+        }
+      },
+      "Data7": {
+        "title": "Data7",
+        "required": [
+          "code",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "code": "superadmin",
+          "name": "Super Admin"
+        }
+      },
+      "GetMasterStatus": {
+        "title": "GetMasterStatus",
+        "required": [
+          "success",
+          "code",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Data8"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "success": true,
+          "code": 200,
+          "message": "success",
+          "data": [
+            {
+              "code": true,
+              "name": "Aktif"
+            },
+            {
+              "code": false,
+              "name": "Non Aktif"
+            }
+          ]
+        }
+      },
+      "Data8": {
+        "title": "Data8",
+        "required": [
+          "code",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "code": true,
+          "name": "Aktif"
+        }
+      }
+    },
+    "securitySchemes": {
+      "basic": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [],
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "User"
+    }
+  ]
+}

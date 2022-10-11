@@ -41,4 +41,5 @@ def yaml_2_json(in_file, out_file):
 
 yaml_2_json(input_file, output_file)
 with open(output_file) as fp:
-    sys.stdout.write(fp.read())
+        #buat generate mesin swagger dev
+       

@@ -14,7 +14,7 @@ yaml = ruamel.yaml.YAML()  # this uses the new API
 yaml.indent(sequence=4, offset=2)
 
 input_file = 'input.json'
-output_file = 'output.yaml'
+output_file = 'xx.yaml'
 
 def json_2_yaml(in_file, out_file):
     with open(in_file, 'r') as stream:
